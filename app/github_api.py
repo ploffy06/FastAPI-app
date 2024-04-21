@@ -14,7 +14,7 @@ async def fetchRepositoriesFromGitHub(username):
 
     Returns:
         List[Repository]: List of Repository  objects containing repository
-        name, description, language andnumber ofstars
+        name, description, language and number ofstars
     """
     try:
         response = httpx.get(f'https://api.github.com/users/{username}/repos')
@@ -28,7 +28,9 @@ async def fetchRepositoriesFromGitHub(username):
                 language=repo['language'] or '',
                 stars=repo['stargazers_count']
             ))
+
         return repos
+
     except httpx.HTTPStatusError as e:
         if e.response.status_code == 404:
             raise HTTPException(
