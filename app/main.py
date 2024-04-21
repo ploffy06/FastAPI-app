@@ -9,7 +9,7 @@ async def getRepositories(username: str):
     Fetch public repositories from GitHub for a given username
 
     Args:
-        username (str): GitHub usernamew=
+        username (str): GitHub username
 
     Raises:
         HTTPException: if user  not found or any  other error.
